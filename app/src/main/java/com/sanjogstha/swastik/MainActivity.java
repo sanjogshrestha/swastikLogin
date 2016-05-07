@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button loginButton;
+    private TextView loginButton;
     private EditText username, password;
     private String userName, pass;
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadUI() {
-        loginButton = (Button) findViewById(R.id.submitLogin);
+        loginButton = (TextView) findViewById(R.id.submitLogin);
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
     }

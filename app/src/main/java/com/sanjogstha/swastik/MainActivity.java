@@ -1,5 +1,6 @@
-package com.sanjogstha.np.swastik1;
+package com.sanjogstha.swastik;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please enter valid credentials",Toast.LENGTH_SHORT).show();
                 }else if(userName.equals("Swastik") && pass.equals("123")){
                     Toast.makeText(MainActivity.this, "welcome",Toast.LENGTH_SHORT).show();
+                    Intent home = new Intent(MainActivity.this, HomeActivity.class);
+                    home.putExtra("username",userName);
+                    startActivity(home);
+
                 }else{
                     Toast.makeText(MainActivity.this, "Invalid User",Toast.LENGTH_SHORT).show();
                 }

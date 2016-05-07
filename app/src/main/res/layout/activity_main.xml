@@ -5,30 +5,49 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.sanjogstha.np.swastik1.MainActivity">
+    android:background="@color/backgroundGrey"
+    tools:context="com.sanjogstha.swastik.MainActivity">
 
-   <TextView
+   <ImageView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="@string/swastik_college"
-       android:textStyle="bold"
-       android:layout_marginTop="20dp"/>
+       android:contentDescription="@string/image"
+       android:background="@drawable/swastik_college_logo"
+       android:layout_marginTop="20dp"
+       android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
 
-   <EditText
+   <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:id="@+id/username"
-       android:hint="@string/name"/>
-   <EditText
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:id="@+id/password"
-       android:inputType="textWebPassword"
-       android:hint="@string/password"/>
+       android:orientation="vertical"
+       android:layout_margin="@dimen/margin24">
 
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:id="@+id/submitLogin"
-       android:text="@string/login"/>
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/username"
+          android:layout_marginBottom="@dimen/margin10"
+          android:hint="@string/name"/>
+
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/password"
+          android:inputType="textWebPassword"
+          android:layout_marginBottom="@dimen/margin10"
+          android:hint="@string/password"/>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/submitLogin"
+          android:text="@string/login"
+          android:textColor="@color/red"
+          android:padding="@dimen/margin10"
+          android:layout_gravity="end"
+          android:background="@android:color/transparent"
+          />
+   </LinearLayout>
+
+
 </LinearLayout>

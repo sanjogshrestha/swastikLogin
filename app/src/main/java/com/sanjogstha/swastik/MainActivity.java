@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(userName.isEmpty() || pass.isEmpty()){
                     Toast.makeText(MainActivity.this, "Please enter valid credentials",Toast.LENGTH_SHORT).show();
-                }else if(userName.equals("Swastik") && pass.equals("123")){
+                }else if(userName.equals("a") && pass.equals("a")){
                     Toast.makeText(MainActivity.this, "welcome",Toast.LENGTH_SHORT).show();
                     Intent home = new Intent(MainActivity.this, HomeActivity.class);
                     home.putExtra("username",userName);

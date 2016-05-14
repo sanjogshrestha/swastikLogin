@@ -16,5 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity"/>
-    </application>
+
+        <activity android:name=".FacultyActivity"
+            android:label="@string/faculty"
+            android:theme="@style/AppTheme"/>
+
+   </application>
 </manifest>

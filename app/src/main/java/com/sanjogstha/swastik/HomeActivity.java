@@ -1,5 +1,6 @@
 package com.sanjogstha.swastik;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -43,6 +44,26 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.item_faculty:
+                Intent faculty = new Intent(HomeActivity.this, FacultyActivity.class);
+                startActivity(faculty);
+                break;
+
+            case R.id.item_gallery:
+                break;
+
+            case R.id.item_contact:
+                break;
+
+            case R.id.item_program:
+                break;
+
+            case R.id.item_about:
+                break;
+
+        }
         return false;
     }
 }

@@ -28,6 +28,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mNavigationView.setNavigationItemSelectedListener(this);
 
+        mToolbar.setTitle(R.string.app_name);
+
         /*This is used to set the toggle button for navigation drawer*/
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

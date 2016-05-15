@@ -49,6 +49,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.item_gallery:
+                Intent gallery = new Intent(HomeActivity.this, GalleryActivity.class);
+                startActivity(gallery);
+                finish();
                 break;
 
             case R.id.item_contact:

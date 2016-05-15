@@ -3,17 +3,16 @@ package com.sanjogstha.swastik;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 /**
  * Created by SanjogStha on 5/1/2016.
  */
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
@@ -29,19 +28,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mNavigationView.setNavigationItemSelectedListener(this);
 
-        if (mToolbar != null) {
-            setSupportActionBar(mToolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            mToolbar.setNavigationIcon(android.R.drawable.ic_input_add);
-            mToolbar.setNavigationOnClickListener(this);
-        }
+        /*This is used to set the toggle button for navigation drawer*/
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
     }
 
-    @Override
-    public void onClick(View view) {
-        mDrawerLayout.openDrawer(GravityCompat.START);
-    }
-
+    /*Method for selection of the navigation menu items*/
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId())
@@ -49,6 +43,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.item_faculty:
                 Intent faculty = new Intent(HomeActivity.this, FacultyActivity.class);
                 startActivity(faculty);
+                finish();
                 break;
 
             case R.id.item_gallery:

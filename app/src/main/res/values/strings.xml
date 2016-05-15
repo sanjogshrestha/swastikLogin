@@ -12,4 +12,6 @@
     <string name="programs">Programs</string>
     <string name="contact_us">Contact Us</string>
     <string name="about_us">About Us</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
 </resources>

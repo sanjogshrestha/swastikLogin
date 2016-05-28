@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         loadUI();
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 userName = username.getText().toString().trim();

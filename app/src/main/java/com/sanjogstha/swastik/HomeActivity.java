@@ -54,6 +54,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
 
+            case R.id.item_location:
+                Intent location = new Intent(HomeActivity.this, MapsActivity.class);
+                startActivity(location);
+                finish();
+                break;
+
             case R.id.item_contact:
                 break;
 

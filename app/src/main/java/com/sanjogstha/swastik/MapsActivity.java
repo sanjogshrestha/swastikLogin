@@ -1,8 +1,10 @@
 package com.sanjogstha.swastik;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -51,5 +53,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng swastik = new LatLng(27.673751, 85.380688);
         mMap.addMarker(new MarkerOptions().position(swastik).title("Swastik College"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(swastik, 14));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent main = new Intent(MapsActivity.this, HomeActivity.class);
+        startActivity(main);
+        super.onBackPressed();
     }
 }

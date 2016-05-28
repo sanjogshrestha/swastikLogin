@@ -1,8 +1,10 @@
 package com.sanjogstha.swastik;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -53,5 +55,22 @@ public class FacultyActivity extends AppCompatActivity{
                 Toast.makeText(FacultyActivity.this, facultyList[i], Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent main = new Intent(FacultyActivity.this, HomeActivity.class);
+        startActivity(main);
+        super.onBackPressed();
     }
 }

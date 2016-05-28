@@ -3,6 +3,7 @@ package com.sanjogstha.swastik;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,15 +31,22 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("user"+ userName + "pass" + pass);
 
                 if(userName.isEmpty() || pass.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Please enter valid credentials",Toast.LENGTH_SHORT).show();
-                }else if(userName.equals("a") && pass.equals("a")){
-                    Toast.makeText(MainActivity.this, "welcome",Toast.LENGTH_SHORT).show();
-                    Intent home = new Intent(MainActivity.this, HomeActivity.class);
-                    home.putExtra("username",userName);
-                    startActivity(home);
 
+                    Toast.makeText(MainActivity.this, "Please enter valid credentials",Toast.LENGTH_SHORT).show();
+
+                }else if(Patterns.EMAIL_ADDRESS.matcher(userName).matches()){
+                    if(userName.equals("a@b.com") && pass.equals("a")){
+
+                        Toast.makeText(MainActivity.this, "welcome",Toast.LENGTH_SHORT).show();
+                        Intent home = new Intent(MainActivity.this, HomeActivity.class);
+                        home.putExtra("username",userName);
+                        startActivity(home);
+
+                    }else{
+                        Toast.makeText(MainActivity.this, "Invalid User",Toast.LENGTH_SHORT).show();
+                    }
                 }else{
-                    Toast.makeText(MainActivity.this, "Invalid User",Toast.LENGTH_SHORT).show();
+                    username.setError("Invalid Email Address");
                 }
             }
         });

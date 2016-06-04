@@ -9,6 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.sanjogstha.swastik.api.ApiService;
+import com.sanjogstha.swastik.api.RetroClient;
+import com.sanjogstha.swastik.model.Contact;
+import com.sanjogstha.swastik.model.Content;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /**
  * Created by SanjogStha on 5/1/2016.
  */
@@ -17,6 +28,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private Toolbar mToolbar;
+    private ArrayList<Contact> contactList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +47,39 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        //Creating an object of our api interface
+        ApiService api = RetroClient.getApiService();
+
+        /**
+         * Calling JSON
+         */
+        Call<Content> call = api.getMyJSON();
+
+        contactList = new ArrayList<>();
+        /**
+         * Enqueue Callback will be call when get response...
+         */
+        call.enqueue(new Callback<Content>() {
+            @Override
+            public void onResponse(Call<Content> call, Response<Content> response) {
+
+                if(response.isSuccessful()) {
+                    /**
+                     * Got Successfully
+                     */
+                     contactList = response.body().getContacts();
+
+
+                } else {
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Content> call, Throwable t) {
+
+            }
+        });
     }
 
     /*Method for selection of the navigation menu items*/

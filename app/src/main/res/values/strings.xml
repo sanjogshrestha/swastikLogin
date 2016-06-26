@@ -16,4 +16,8 @@
     <string name="navigation_drawer_close">close</string>
     <string name="title_activity_maps">Map</string>
     <string name="locate_us">Locate Us</string>
+    <string name="www_swastik_edu_np">www.swastik.edu.np</string>
+    <string name="info_swastik_edu_np">info@swastik.edu.np</string>
+    <string name="welcome_to_swastik_college">Welcome to Swastik College</string>
+    <string name="phoneNumber1">+97716635174</string>
 </resources>

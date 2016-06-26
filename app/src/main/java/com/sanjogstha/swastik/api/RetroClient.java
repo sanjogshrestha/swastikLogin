@@ -10,7 +10,7 @@ public class RetroClient {
     /********
      * URLS
      *******/
-    private static final String ROOT_URL = "http://pratikbutani.x10.mx";
+    private static final String ROOT_URL = "https://gist.githubusercontent.com/sanjogshrestha/";
 
     /**
      * Get Retrofit Instance
